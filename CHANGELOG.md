@@ -1,7 +1,54 @@
 # Changelog
+- 6.1.2
+  - Fix typings for `children1`: tuple -> array (PR #885) (issue #881)
+  - Fix compare fields for case when type != widget.type (PR #875) (issue #758)
+- 6.1.1
+  - Fix CJS build (issue with antd/es and antd/lib) (PR #859) (issue #858)
+  - Fix button labels (PR #856) (issue #824)
+  - Fix whitespace in select (PR #855) (issue #845)
+- 6.1.0
+  - Improve styles (PR #848)
+    - More `flex`ible styles for low-width
+    - `styles.scss` now has vars that can be overridden to change colos and sizes
+    - Breaking: Now `compact_styles.css` replaces `styles.css`, don't use them together
+    - Breaking: Removed icon in "Add sub rule" button
+  - Added `@react-awesome-query-builder/fluent` package (PR #727)
+  - Fix import of `is_null` and `is_not_null` ops from SpEL (PR #831) (issue #794)
+  - Fix import of NOT from SpEL (PR #852) (issue #834)
+    Also fixes export of aggregation expression w/o children filter like `cars.size() == 2`
+  - Support antd 5 (PR #853) (issue #812)
+- 6.0.0
+  - Project has been divided into packages (monorepo) (PR #769)
+    Export ESM
+- 5.4.0
+  - Add `multiselect_contains` operator (PR #813) (issue #702)
+- 5.3.2
+  - Fix drag-n-drop issue in React 18 using `ReactDOM.createRoot()` (PR #815) (issue #792)
+  - Type fix: add `id` for `JsonRule` (PR #799) (issue #791)
+  - Type fix: Add typings for `groupOperators` (PR #798)
+  - Fix: `not` operation at the root not detected when importing from SpEL (PR #767) (issue #766)
+- 5.3.1
+  - Support `@fortawesome/react-fontawesome 0.2.x` (issue #757)
+  - Fix `loadFromSpel` for `select_not_equals` op (PR #761) (issue #704)
+- 5.3.0
+  - Added `renderItem` (PR #729)
+- 5.2.1
+  - Fix type applied to filter funcs as another func's arg value (PR #743) (issue #586)
+  - Allow self nesting of functions with `allowSelfNesting` (PR #698)
+  - ES: Fix `greater` op (PR #749) (issue #744)
+  - ES: Fix NOT (PR #750) (issue #723)
 - 5.2.0
   - ! Breaking change: `children1` is now array in result of `getTree()` to preserve items order (PR #672) (issues #589, #670)
     `Utils.getTree(tree, true, false)` will behave same as before this change.
+  - Support React 18. Migrate to x-date-pickers. (PR #734) (issues #710, #732)
+  - Add path property at `index.d.ts` (PR #671) (issue #669)
+  - Fixed `getTotalRulesCountInTree()` == 1 (should be 0) for clear tree (PR #673) (issue #583)
+  - Handle validation of bad multiselect value correctly (PR #733) (issue #674)
+    Remove bad values from list, don't unset whole value.
+    Added config `removeInvalidMultiSelectValuesOnLoad` (true by default, false for AntDesign)
+    ! Breaking change: `removeIncompleteRulesOnLoad` and `removeEmptyGroupsOnLoad` now default to `true`, set them to `false` in your `settings` to preserve the current behaviour
+  - Fix `loadFromSpel` for `select_equals` op (PR #740) (issue #704)
+  - Fix `loadFromSpel` for `is_empty` and `is_not_empty` ops (PR #713) (issues #714, #699)
 - 5.1.2
   - Added config `removeIncompleteRulesOnLoad` (default false) (PR #661) (issue #642)
   - Fix error when using same field for comparison as argument of function (PR #662) (issue #612)
